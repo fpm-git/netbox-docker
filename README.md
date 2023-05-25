@@ -1,10 +1,10 @@
 # build custom image
+```
 docker build -t ghcr.io/fpm-git/netbox:v1.0.0-up3.5.2 -f Dockerfile-Plugins .
 docker push ghcr.io/fpm-git/netbox:v1.0.0-up3.5.2
+```
 
-Installed the following two plugins
-https://github.com/mattieserver/netbox-topology-views
-https://github.com/jasonyates/netbox-documents
+Installed the following two plugins: https://github.com/mattieserver/netbox-topology-views and https://github.com/jasonyates/netbox-documents
 
 
 # netbox-docker
