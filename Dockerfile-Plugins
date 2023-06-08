@@ -1,10 +1,8 @@
-FROM netboxcommunity/netbox:v3.5.2
+FROM netboxcommunity/netbox:v3.5.3
 LABEL org.opencontainers.image.source https://github.com/fpm-git/netbox
 
 COPY ./plugin_requirements.txt /
 RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /plugin_requirements.txt
 
-# Add the command to create the image folder required by the netbox-topology-views plugin
-RUN mkdir -p /opt/netbox/netbox/static/netbox_topology_views/img
 
 RUN SECRET_KEY="dummydummydummydummydummydummydummydummydummydummy" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
