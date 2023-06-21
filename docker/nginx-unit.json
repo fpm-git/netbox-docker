@@ -46,11 +46,7 @@
       "path": "/opt/netbox/netbox/",
       "module": "netbox.wsgi",
       "home": "/opt/netbox/venv",
-      "processes": {
-        "max": 4,
-        "spare": 1,
-        "idle_timeout": 120
-      }
+      "processes": 4
     }
   },
   "access_log": "/dev/stdout"
