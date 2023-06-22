@@ -4,5 +4,6 @@ LABEL org.opencontainers.image.source https://github.com/fpm-git/netbox
 COPY ./plugin_requirements.txt /
 RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /plugin_requirements.txt
 
+COPY docker/nginx-unit.json /etc/unit/
 
 RUN SECRET_KEY="dummydummydummydummydummydummydummydummydummydummy" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
