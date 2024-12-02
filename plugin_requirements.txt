@@ -1,2 +1,2 @@
-netbox-documents
-netbox-qrcode
+netbox-documents==0.6.4
+netbox-qrcode==0.0.11
