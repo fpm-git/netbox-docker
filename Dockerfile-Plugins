@@ -1,9 +1,16 @@
 FROM netboxcommunity/netbox:v3.7.8
 LABEL org.opencontainers.image.source https://github.com/fpm-git/netbox
 
+RUN sed -i 's|http://archive.ubuntu.com/ubuntu|http://old-releases.ubuntu.com/ubuntu|g' /etc/apt/sources.list && \
+    sed -i 's|http://security.ubuntu.com/ubuntu|http://old-releases.ubuntu.com/ubuntu|g' /etc/apt/sources.list && \
+    rm -f /etc/apt/sources.list.d/nginx.list && \
+    apt-get update --allow-insecure-repositories && \
+    apt-get install -y --allow-unauthenticated git && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 COPY ./plugin_requirements.txt /
 RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /plugin_requirements.txt
-RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location  git+https://github.com/LHBL2003/netbox-qrcode@HTML-Label-Design
+RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location git+https://github.com/LHBL2003/netbox-qrcode@HTML-Label-Design
 
 COPY docker/nginx-unit.json /etc/unit/
 
