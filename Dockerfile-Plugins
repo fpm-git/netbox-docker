@@ -1,4 +1,4 @@
-FROM netboxcommunity/netbox:v3.7.8
+FROM netboxcommunity/netbox:v4.2.6
 LABEL org.opencontainers.image.source https://github.com/fpm-git/netbox
 
 RUN sed -i 's|http://archive.ubuntu.com/ubuntu|http://old-releases.ubuntu.com/ubuntu|g' /etc/apt/sources.list && \
@@ -10,7 +10,7 @@ RUN sed -i 's|http://archive.ubuntu.com/ubuntu|http://old-releases.ubuntu.com/ub
 
 COPY ./plugin_requirements.txt /
 RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /plugin_requirements.txt
-RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location git+https://github.com/LHBL2003/netbox-qrcode@HTML-Label-Design
+#RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location git+https://github.com/LHBL2003/netbox-qrcode@HTML-Label-Design
 
 COPY docker/nginx-unit.json /etc/unit/
 
