@@ -1,3 +1,19 @@
+# Build custom plugin image
+
+The base image is NetBox **4.7.4** with NetBox Docker **5.1.1** support files.
+
+```shell
+docker build --pull -t ghcr.io/fpm-git/netbox:v1.0.7-upv4.7.4 -f Dockerfile-Plugins .
+docker push ghcr.io/fpm-git/netbox:v1.0.7-upv4.7.4
+```
+
+Installed plugins are pinned in [plugin_requirements.txt](./plugin_requirements.txt):
+
+- [Documents](https://github.com/jasonyates/netbox-documents): 0.8.5
+- [QR Code](https://github.com/netbox-community/netbox-qrcode): 1.0.0
+- [Topology Views](https://github.com/netbox-community/netbox-topology-views): 5.0.0
+
+
 # netbox-docker
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/netbox-community/netbox-docker)][github-release]

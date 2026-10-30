@@ -1,0 +1,3 @@
+netbox-documents==0.8.5
+netbox-qrcode==1.0.0
+netbox-topology-views==5.0.0
